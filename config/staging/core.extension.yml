@@ -13,7 +13,6 @@ module:
   color: 0
   comment: 0
   config: 0
-  config_filter: 0
   contact: 0
   contact_block: 0
   contact_storage: 0
