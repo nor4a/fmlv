@@ -1,0 +1,15 @@
+uuid: 083af7c7-3b1c-4aca-b4fa-0547ee76e310
+langcode: en
+status: true
+dependencies: {  }
+id: production_settings_not_export
+label: 'Production settings - not export'
+folder: ''
+module:
+  smtp: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0
