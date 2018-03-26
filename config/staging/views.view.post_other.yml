@@ -10,10 +10,12 @@ dependencies:
     - image.style.medium
     - image.style.normal_size
     - node.type.article
+    - system.menu.main
   module:
     - gavias_view
     - image
     - node
+    - taxonomy
     - text
     - user
 id: post_other
@@ -2859,19 +2861,21 @@ display:
   page_3:
     display_plugin: page
     id: page_3
-    display_title: 'Page - Blogs list'
+    display_title: 'Blog by taxonomy term'
     position: 9
     display_options:
       display_extenders: {  }
       display_description: ''
-      title: 'List posts'
+      title: 'Blog list'
       defaults:
         title: false
         css_class: false
         fields: false
         pager: false
+        arguments: false
+        relationships: false
       css_class: post-style-list
-      path: blogs-list
+      path: taxonomy/term/%
       fields:
         field_image:
           id: field_image
@@ -3320,13 +3324,63 @@ display:
             offset_label: Offset
           quantity: 9
       menu:
-        enabled: true
+        type: normal
+        title: 'Gardi ēst'
+        description: ''
         expanded: false
+        parent: ''
+        weight: -49
+        context: '0'
+        menu_name: main
+      arguments:
+        tid:
+          id: tid
+          table: taxonomy_index
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          default_action: 'not found'
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: true
+          title: '{{ arguments.tid }}'
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: 'entity:taxonomy_term'
+            fail: 'not found'
+          validate_options:
+            access: true
+            operation: view
+            multiple: 0
+            bundles: {  }
+          break_phrase: false
+          add_table: false
+          require_value: false
+          reduce_duplicates: false
+          plugin_id: taxonomy_index_tid
+      relationships: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
