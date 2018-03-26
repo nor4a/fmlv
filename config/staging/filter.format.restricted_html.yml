@@ -6,7 +6,7 @@ dependencies:
     - gavias_blockbuilder
 name: 'Restricted HTML'
 format: restricted_html
-weight: 0
+weight: -8
 filters:
   filter_html:
     id: filter_html
