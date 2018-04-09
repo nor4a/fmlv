@@ -30,8 +30,8 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\n/node/159\r\n/node/160\r\n/node/161\r\n/node/162\r\n/node/138\r\n/node/157"
-    negate: true
+    pages: '*'
+    negate: false
     context_mapping: {  }
   condition_group:
     id: condition_group
